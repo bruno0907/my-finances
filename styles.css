@@ -1,0 +1,316 @@
+:root{
+  --color-background-primary: #edf6f9;
+  --color-background-secondary: #22223b;
+  --color-card-background: #fff;  
+  --color-text-primary: #6c757d;  
+  --color-text-secondary: #edf6f9;  
+  --color-red: #bf0603;
+  --color-green: #06b406;
+
+}
+
+*{ margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+
+input, select, option, textfield{
+  font-family: 'Lato', sans-serif;  
+  font-size: .9rem;
+}
+
+body{
+  background-color: var(--color-background-primary);
+  font-family: 'Lato', sans-serif;  
+  color: var(--color-text-primary);
+}
+
+.container{  
+  margin: 0 auto;
+  max-width: 860px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+header{
+  width: 100%;
+  height: 190px;
+  background-color: var(--color-background-secondary);    
+}
+
+#title{  
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-top: 1rem;
+  font-size: 2.2rem;
+}
+
+section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#balance{
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-start;  
+  margin-top: -6rem; 
+}
+
+#balance h2{    
+  margin-bottom: .5rem;  
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+}
+
+#cards{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#cards div{
+  margin-bottom: 1rem;
+}
+
+#card{
+  width: 100%;
+  background-color: var(--color-card-background);
+  border-radius: 8px;
+  padding: 1rem 2rem;
+}
+
+#card h3{
+  font-size: .7rem;
+  margin-bottom: .7rem;
+}
+
+#card span{
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#card.positive{
+  background-color: var(--color-green);
+  color: var(--color-card-background);
+}
+
+#card.negative{
+  background-color: var(--color-red);
+  color: var(--color-background-primary);
+}
+
+#transactions{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+#transactions .transactions--title{  
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#transactions .transactions--title h2{      
+  font-size: 1.1rem;    
+}
+
+#transactions .transactions--title button{      
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--color-green);
+  font-weight: 700;
+  font-size: .9rem;
+  transition: opacity 150ms;
+}
+#transactions .transactions--title button:hover{      
+  opacity: .8;
+}
+
+#transactions table{
+  width: 100%;  
+  color: var(--color-text-primary);
+  text-align: left;
+  font-size: .9rem;
+  border-spacing: 0 .5rem;
+}
+
+#transactions table thead th,
+#transactions table tbody td{
+  padding: .8rem 1.2rem;    
+  background: var(--color-card-background);  
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+#transactions table thead th:first-child,
+#transactions table tbody tr td:first-child{
+  border-radius: 8px 0 0 8px;
+}
+
+#transactions table thead th:last-child,
+#transactions table tbody tr td:last-child{
+  border-radius: 0 8px 8px 0;
+}
+
+#transactions table tbody tr{
+  opacity: .7;
+  transition: 150ms;
+}
+
+#transactions table tbody tr:hover{
+  opacity: 1;
+}
+
+#transaction-amount.debit{
+  color: var(--color-red);
+}
+
+#transaction-amount.income{
+  color: var(--color-green)
+}
+
+footer{  
+  margin: 0 auto;  
+  text-align: center;
+  padding: 2rem; 
+  color: var(--color-text-primary) 
+}
+
+#modal{
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,.5);
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.isVisible{
+  visibility: visible!important;
+  opacity: 1!important;
+}
+
+#modal .modal-container{
+  background-color: var(--color-background-primary);
+  width: 100%;
+  max-width: 560px;
+  padding: 3rem;
+  border-radius: 8px;
+  margin: 0 12px;
+}
+
+#new-transaction legend{
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-background-secondary);
+  margin-bottom: 1rem;
+}
+
+#new-transaction fieldset{
+  width: 100%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+#new-transaction fieldset div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#new-transaction fieldset div input,
+#new-transaction fieldset div select{
+  border: solid 2px;
+  border-color: var(--color-card-background);
+  padding: .8rem 1.2rem;
+  border-radius: 8px;
+  background-color: var(--color-card-background);
+  color: var(--color-text-primary);
+  transition: border-color 150ms;
+}
+
+#new-transaction fieldset div input:hover,
+#new-transaction fieldset div input:focus{
+  border-color: solid 2px var(--color-background-secondary);
+}
+
+#new-transaction fieldset div select:hover,
+#new-transaction fieldset div select:focus{
+  border-color: solid 2px var(--color-background-secondary);
+}
+
+#new-transaction fieldset div input[type="date"]:hover,
+#new-transaction fieldset div input[type="date"]:focus{
+  border-color: solid 2px var(--color-background-secondary);
+}
+
+#new-transaction fieldset div input::-webkit-inner-spin-button,
+#new-transaction fieldset div input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#new-transaction fieldset div input[type=number]{
+  -moz-appearance: textfield;
+}
+
+#new-transaction fieldset div input[type=date]{
+  border: solid 2px var(--color-card-background);
+}
+
+#new-transaction fieldset div+div,
+#new-transaction fieldset button+button{
+  margin-top: 8px;
+}
+
+#new-transaction fieldset div input,
+#new-transaction fieldset button{
+  width: 100%;  
+  padding: .8rem 1.2rem;
+  cursor: pointer;
+}
+
+#new-transaction fieldset button{   
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;    
+}
+
+#new-transaction--save{
+  background-color: var(--color-green);   
+  border: solid 2px var(--color-green); 
+  color: var(--color-text-secondary);
+  transition: opacity 150ms;  
+}
+
+#new-transaction--save:hover{    
+  opacity: .8;
+}
+
+#new-transaction--cancel{
+  background-color: transparent;
+  border: solid 2px var(--color-red);
+  color: var(--color-red);
+  transition: all 150ms;
+}
+
+#new-transaction--cancel:hover{
+  background-color: var(--color-red);  
+  color: var(--color-text-secondary);  
+}

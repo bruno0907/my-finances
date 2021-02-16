@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <title>My Finances</title>
+</head>
+<body>
+  <div>
+    <header>
+      <div class="container">
+        <h1 id="title">myfinances</h1>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section id="balance">   
+          <h2>Balanço</h2>
+          <div id="cards">
+            <div id="card">
+              <h3>Entradas</h3>
+              <span id="balance-income"></span>
+            </div>
+            <div id="card">
+              <h3>Saídas</h3>
+              <span id="balance-outcome"></span>
+            </div>
+            <div id="card" class="positive">
+              <h3>Total</h3>
+              <span id="balance-total"></span>
+            </div>
+          </div>
+        </section>
+        
+        <section id="transactions">
+          <div class="transactions--title">
+            <h2>Transações</h2>
+            <button onclick="Modal.handleModal()">+ Nova transação</button>
+          </div>
+          <table>            
+            <thead>              
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Data</th>
+              <th></th> 
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td id="transactions-description">Luz</td>
+                <td id="transactions-amount" class="debit">- R$ 100,00</td>
+                <td id="transactions-date">15/02/2021</td>
+                <td id="transactions-remove">Excluir</td>
+              </tr>
+              <tr>
+                <td id="transactions-description">Internet</td>
+                <td id="transactions-amount" class="debit">- R$ 50,00</td>
+                <td id="transactions-date">25/02/2021</td>
+                <td id="transactions-remove">Excluir</td>
+              </tr>              
+              <tr>
+                <td id="transactions-description">Pagamento</td>
+                <td id="transactions-amount" class="income">+ R$ 350,00</td>
+                <td id="transactions-date">05/02/2021</td>
+                <td id="transactions-remove">Excluir</td>
+              </tr>              
+            </tbody>
+          </table>
+
+        </section>
+        <div id="modal" class="">
+          <div class="modal-container">
+            <form id="new-transaction" onsubmit="Transaction.newTransaction(event)">
+              <legend>Nova Transação</legend>
+
+              <fieldset>
+                <div>                    
+                  <input type="text" id="new-transaction--description" placeholder="Descrição">
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div>                        
+                  <input id="new-transaction--amount" type="number" placeholder="0,00">
+                </div>
+                <div>                  
+                  <select name="new-transaction--type" id="new-transaction--type">
+                    <option value="" hidden>Tipo de transação</option>
+                    <option value="+">Crédito</option>
+                    <option value="-">Débito</option>
+                  </select>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div>                                       
+                  <input name="new-transaction--date" id="new-transaction--date" type="date">
+                </div>
+              </fieldset>
+              <fieldset>
+                <button id="new-transaction--save" type="submit">Enviar</button>
+                <button id="new-transaction--cancel" type="reset" onclick="Modal.handleModal()">Cancelar</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>myfinances - <span>2021</span></p>
+    </footer>
+  </div>
+</body>
+  <script src="script.js"></script>
+</html>
