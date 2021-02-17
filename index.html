@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">  
   <title>My Finances</title>
 </head>
 <body>
@@ -22,70 +21,48 @@
           <h2>Balanço</h2>
           <div id="cards">
             <div id="card">
-              <h3>Entradas</h3>
-              <span id="balance-income"></span>
+              <h3>Entradas <img src="./assets/arrow-up-circle.svg"></h3>
+              <span id="balance-income">R$ 0,00</span>
             </div>
             <div id="card">
-              <h3>Saídas</h3>
-              <span id="balance-outcome"></span>
+              <h3>Saídas <img src="./assets/arrow-down-circle.svg"></h3>
+              <span id="balance-outcome">R$ 0,00</span>
             </div>
-            <div id="card" class="positive">
-              <h3>Total</h3>
-              <span id="balance-total"></span>
+            <div id="card" class="card-total">
+              <h3>Total <img src="./assets/dollar-sign.svg"></h3>
+              <span id="balance-total">R$ 0,00</span>
             </div>
           </div>
         </section>
         
         <section id="transactions">
           <div class="transactions--title">
-            <h2>Transações</h2>
-            <button onclick="Modal.handleModal()">+ Nova transação</button>
+            <h2>Histórico de transações</h2>
+            <button onclick="Modal.handleModal()">Nova transação</button>
           </div>
-          <table>            
-            <thead>              
-              <th>Descrição</th>
-              <th>Valor</th>
-              <th>Data</th>
-              <th></th> 
-            </thead>
-            
-            <tbody>
-              <tr>
-                <td id="transactions-description">Luz</td>
-                <td id="transactions-amount" class="debit">- R$ 100,00</td>
-                <td id="transactions-date">15/02/2021</td>
-                <td id="transactions-remove">Excluir</td>
-              </tr>
-              <tr>
-                <td id="transactions-description">Internet</td>
-                <td id="transactions-amount" class="debit">- R$ 50,00</td>
-                <td id="transactions-date">25/02/2021</td>
-                <td id="transactions-remove">Excluir</td>
-              </tr>              
-              <tr>
-                <td id="transactions-description">Pagamento</td>
-                <td id="transactions-amount" class="income">+ R$ 350,00</td>
-                <td id="transactions-date">05/02/2021</td>
-                <td id="transactions-remove">Excluir</td>
-              </tr>              
-            </tbody>
-          </table>
-
+          <div class="transactions--header">              
+            <span>Descrição</span>
+            <span>Valor</span>
+            <span>Data</span>
+            <span></span> 
+          </div>            
+          <ul></ul>
+          <button id="new-trasaction--mobile" onclick="Modal.handleModal()">
+            <img src="./assets/plus.svg">
+          </button>
         </section>
         <div id="modal" class="">
           <div class="modal-container">
             <form id="new-transaction" onsubmit="Transaction.newTransaction(event)">
               <legend>Nova Transação</legend>
-
               <fieldset>
                 <div>                    
                   <input type="text" id="new-transaction--description" placeholder="Descrição">
                 </div>
               </fieldset>
-
               <fieldset>
                 <div>                        
-                  <input id="new-transaction--amount" type="number" placeholder="0,00">
+                  <input id="new-transaction--amount" type="number" min="0.001" step="0.001" placeholder="0,00">
                 </div>
                 <div>                  
                   <select name="new-transaction--type" id="new-transaction--type">
@@ -95,7 +72,6 @@
                   </select>
                 </div>
               </fieldset>
-
               <fieldset>
                 <div>                                       
                   <input name="new-transaction--date" id="new-transaction--date" type="date">
@@ -115,5 +91,5 @@
     </footer>
   </div>
 </body>
-  <script src="script.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </html>
