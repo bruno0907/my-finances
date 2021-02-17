@@ -1,0 +1,19 @@
+{
+  "name": "my-finances",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bruno0907/my-finances.git",
+  "author": "<bruno0907@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
